@@ -1,0 +1,88 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&display=swap');
+
+/* Font chính */
+:root {
+  --font-be: 'Be Vietnam Pro', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-be);
+  background-color: #ffffff;
+  color: #878787;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Link style nhẹ nhàng */
+a {
+  font-weight: 500;
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #bc0000; /* red-600 */
+}
+
+.shiny-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shiny-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-25deg);
+}
+
+.shiny-button:hover::before {
+  animation: shine 1s ease-in-out;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease forwards;
+}
+.animate-fade-in-up {
+  animation: fade-in 1.2s ease forwards;
+}
+.animate-fade-in-down {
+  animation: fade-in 1.4s ease forwards;
+}
+
+/* Đảm bảo không ghi đè Tailwind button, h1, v.v. */
